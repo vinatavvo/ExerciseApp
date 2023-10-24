@@ -6,7 +6,24 @@
     text-align: center;
 }
 
+.pieTracker { 
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    background-image: conic-gradient( 
+        pink 40%,  
+        lightblue 0 60%); 
+} 
+
+body, 
+.pieTracker { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+} 
+
 .nav {
     display: flex;
     justify-content: center;
+    bottom: -0.5em;
 }
