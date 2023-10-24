@@ -1,0 +1,12 @@
+.screen {
+    background-color: bisque;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
