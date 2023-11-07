@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodyweight Tracker</title>
+
+    <style>
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: antiquewhite;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .input-container {
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .graph-container {
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Bodyweight Tracker</h1>
+        <div class="input-container">
+            <label for="date">Date:</label>
+            <input type="date" id="date"><br>
+            <label for="weight">Weight (lb):</label>
+            <input type="number" id="weight" step="0.01">
+            <button id="add-entry">Add Entry</button>
+        </div>
+        <div class="table-container">
+            <h2>Weight Entries</h2>
+            <table id="weight-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Weight (lb)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Entries will be added here dynamically -->
+                </tbody>
+            </table>
+        </div>
+        <div class="graph-container">
+            <h2>Weight Progress Graph</h2>
+            <canvas id="weight-chart" width="400" height="200"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const weightEntries = [];
+
+    // Get elements from the DOM
+    const dateInput = document.getElementById("date");
+    const weightInput = document.getElementById("weight");
+    const addEntryButton = document.getElementById("add-entry");
+    const weightTable = document.getElementById("weight-table");
+    const weightChartCanvas = document.getElementById("weight-chart");
+    const weightChartContext = weightChartCanvas.getContext("2d");
+
+    // Add a new entry when the "Add Entry" button is clicked
+    addEntryButton.addEventListener("click", () => {
+        const date = dateInput.value;
+        const weight = parseFloat(weightInput.value);
+
+        if (date && !isNaN(weight)) {
+            weightEntries.push({ date, weight });
+
+            // Update the table
+            updateTable();
+
+            // Update the graph
+            updateGraph();
+
+            // Clear input fields
+            dateInput.value = "";
+            weightInput.value = "";
+        }
+    });
+
+    // Update the table with the current entries
+    function updateTable() {
+        const tableBody = weightTable.querySelector("tbody");
+        tableBody.innerHTML = "";
+
+        for (const entry of weightEntries) {
+            const row = tableBody.insertRow();
+            row.insertCell(0).textContent = entry.date;
+            row.insertCell(1).textContent = entry.weight;
+        }
+    }
+
+    // Update the graph with the current entries
+    function updateGraph() {
+        weightChartContext.clearRect(0, 0, weightChartCanvas.width, weightChartCanvas.height);
+
+        const dates = weightEntries.map(entry => entry.date);
+        const weights = weightEntries.map(entry => entry.weight);
+
+        const minValue = Math.min(...weights);
+        const maxValue = Math.max(...weights);
+
+        const xStep = weightChartCanvas.width / (dates.length - 1);
+        const yStep = weightChartCanvas.height / (maxValue - minValue);
+
+        // Draw x-axis labels (dates)
+        weightChartContext.fillStyle = "black";
+        weightChartContext.font = "12px Arial";
+        for (let i = 0; i < dates.length; i++) {
+            weightChartContext.fillText(dates[i], i * xStep, weightChartCanvas.height + 15);
+        }
+
+        // Draw y-axis labels (weights)
+        weightChartContext.textAlign = "right";
+        for (let i = minValue; i <= maxValue; i++) {
+            const y = weightChartCanvas.height - (i - minValue) * yStep;
+            weightChartContext.fillText(i.toFixed(2), -5, y + 5);
+        }
+
+        weightChartContext.beginPath();
+        weightChartContext.moveTo(0, weightChartCanvas.height - (weights[0] - minValue) * yStep);
+
+        for (let i = 1; i < dates.length; i++) {
+            weightChartContext.lineTo(i * xStep, weightChartCanvas.height - (weights[i] - minValue) * yStep);
+        }
+
+        weightChartContext.strokeStyle = "blue";
+        weightChartContext.lineWidth = 2;
+        weightChartContext.stroke();
+    }
+</script>
+</body>
+
+</html>
