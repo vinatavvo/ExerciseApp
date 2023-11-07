@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calories Tracker</h1>
+        <form id="food-form">
+
+            <!-- BREAKFAST -->
+            <h2>Breakfast</h2>
+            <table id="breakfastTable">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Calories</th>
+                    <th>Protein (g)</th>
+                    <th>Carbs (g)</th>
+                    <th>Fats (g)</th>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" id="breakfast-food-name" required></td>
+                    <td><input type="number" id="breakfast-calories" required></td>
+                    <td><input type="number" id="breakfast-protein" required></td>
+                    <td><input type="number" id="breakfast-carbs" required></td>
+                    <td><input type="number" id="breakfast-fats" required></td>
+                </tr>
+            </table>
+            <td><button type="button" onclick="addFood('breakfast')">Add Food</button></td>
+
+            <!-- LUNCH -->
+            <h2>Lunch</h2>
+            <table id="lunchTable">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Calories</th>
+                    <th>Protein (g)</th>
+                    <th>Carbs (g)</th>
+                    <th>Fats (g)</th>
+                   
+                </tr>
+                <tr>
+                    <td><input type="text" id="lunch-food-name" required></td>
+                    <td><input type="number" id="lunch-calories" required></td>
+                    <td><input type="number" id="lunch-protein" required></td>
+                    <td><input type="number" id="lunch-carbs" required></td>
+                    <td><input type="number" id="lunch-fats" required></td>
+                </tr>
+            </table>
+            <td><button type="button" onclick="addFood('lunch')">Add Food</button></td>
+
+            <!-- DINNER -->
+            <h2>Dinner</h2>
+            <table id="dinnerTable">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Calories</th>
+                    <th>Protein (g)</th>
+                    <th>Carbs (g)</th>
+                    <th>Fats (g)</th>
+          
+                </tr>
+                <tr>
+                    <td><input type="text" id="dinner-food-name" required></td>
+                    <td><input type="number" id="dinner-calories" required></td>
+                    <td><input type="number" id="dinner-protein" required></td>
+                    <td><input type="number" id="dinner-carbs" required></td>
+                    <td><input type="number" id="dinner-fats" required></td>
+                </tr>
+            </table>
+            <td><button type="button" onclick="addFood('dinner')">Add Food</button></td>
+
+            <!-- SNACKS -->
+            <h2>Snacks</h2>
+            <table id="snackTable">
+                <tr>
+                    <th>Food Item</th>
+                    <th>Calories</th>
+                    <th>Protein (g)</th>
+                    <th>Carbs (g)</th>
+                    <th>Fats (g)</th>
+                </tr>
+                <tr>
+                    <td><input type="text" id="snack-food-name" required></td>
+                    <td><input type="number" id="snack-calories" required></td>
+                    <td><input type="number" id="snack-protein" required></td>
+                    <td><input type="number" id="snack-carbs" required></td>
+                    <td><input type="number" id="snack-fats" required></td>
+                </tr>
+            </table>
+            <td><button type="button" onclick="addFood('snack')">Add Food</button></td>
+        </form>
+
+        <table id="totals">
+            <h2>Totals</h2>
+            <tr>
+                <td>Calories: <span id="total-calories">0</span></td>
+                <td>Protein (g): <span id="total-protein">0</span></td>
+                <td>Carbs (g): <span id="total-carbs">0</span></td>
+                <td>Fats (g): <span id="total-fats">0</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const breakfastTable = document.getElementById("breakfastTable");
+        const lunchTable = document.getElementById("lunchTable");
+        const dinnerTable = document.getElementById("dinnerTable");
+        const snackTable = document.getElementById("snackTable");
+        const totalCalories = document.getElementById("total-calories");
+        const totalProtein = document.getElementById("total-protein");
+        const totalCarbs = document.getElementById("total-carbs");
+        const totalFats = document.getElementById("total-fats");
+
+        let breakfastFoods = [];
+        let lunchFoods = [];
+        let dinnerFoods = [];
+        let snackFoods = [];
+
+        function addFood(mealType) {
+            const foodName = document.getElementById(`${mealType}-food-name`).value;
+            const calories = parseInt(document.getElementById(`${mealType}-calories`).value);
+            const protein = parseFloat(document.getElementById(`${mealType}-protein`).value);
+            const carbs = parseFloat(document.getElementById(`${mealType}-carbs`).value);
+            const fats = parseFloat(document.getElementById(`${mealType}-fats`).value);
+
+            const foodItem = {
+                name: foodName,
+                calories: calories,
+                protein: protein,
+                carbs: carbs,
+                fats: fats
+            };
+
+            if (mealType === 'breakfast') {
+                breakfastFoods.push(foodItem);
+                renderFoodList(breakfastTable, foodItem, breakfastFoods);
+            } else if (mealType === 'lunch') {
+                lunchFoods.push(foodItem);
+                renderFoodList(lunchTable, foodItem, lunchFoods);
+            } else if (mealType === 'dinner') {
+                dinnerFoods.push(foodItem);
+                renderFoodList(dinnerTable, foodItem, dinnerFoods);
+            } else if (mealType === 'snack') {
+                snackFoods.push(foodItem);
+                renderFoodList(snackTable, foodItem, snackFoods);
+            }
+
+            updateTotals();
+            // Reset the form
+            document.getElementById("food-form").reset();
+        }
+
+        function renderFoodList(table, food, foodsArray) {
+            const newRow = table.insertRow(-1);
+
+            const nameCell = newRow.insertCell(0);
+            const caloriesCell = newRow.insertCell(1);
+            const proteinCell = newRow.insertCell(2);
+            const carbsCell = newRow.insertCell(3);
+            const fatsCell = newRow.insertCell(4);
+            const actionCell = newRow.insertCell(5);
+
+            nameCell.textContent = food.name;
+            caloriesCell.textContent = food.calories;
+            proteinCell.textContent = food.protein;
+            carbsCell.textContent = food.carbs;
+            fatsCell.textContent = food.fats;
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.onclick = () => editFood(food, table, newRow, foodsArray);
+
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.onclick = () => removeFood(food, table, newRow, foodsArray);
+
+            actionCell.appendChild(editButton);
+            actionCell.appendChild(removeButton);
+        }
+
+        function editFood(food, table, row, foodsArray) {
+            // Replace the input cells with editable inputs
+            const nameCell = row.cells[0];
+            const caloriesCell = row.cells[1];
+            const proteinCell = row.cells[2];
+            const carbsCell = row.cells[3];
+            const fatsCell = row.cells[4];
+
+            const nameInput = document.createElement("input");
+            nameInput.type = "text";
+            nameInput.value = food.name;
+
+            const caloriesInput = document.createElement("input");
+            caloriesInput.type = "number";
+            caloriesInput.value = food.calories;
+
+            const proteinInput = document.createElement("input");
+            proteinInput.type = "number";
+            proteinInput.value = food.protein;
+
+            const carbsInput = document.createElement("input");
+            carbsInput.type = "number";
+            carbsInput.value = food.carbs;
+
+            const fatsInput = document.createElement("input");
+            fatsInput.type = "number";
+            fatsInput.value = food.fats;
+
+            nameCell.innerHTML = "";
+            caloriesCell.innerHTML = "";
+            proteinCell.innerHTML = "";
+            carbsCell.innerHTML = "";
+            fatsCell.innerHTML = "";
+
+            nameCell.appendChild(nameInput);
+            caloriesCell.appendChild(caloriesInput);
+            proteinCell.appendChild(proteinInput);
+            carbsCell.appendChild(carbsInput);
+            fatsCell.appendChild(fatsInput);
+
+            // Replace the Edit button with a Save button
+            const actionCell = row.cells[5];
+            actionCell.innerHTML = "";
+            const saveButton = document.createElement("button");
+            saveButton.textContent = "Save";
+            saveButton.onclick = () => saveEditedFood(food, nameInput, caloriesInput, proteinInput, carbsInput, fatsInput, table, row, foodsArray);
+            actionCell.appendChild(saveButton);
+        }
+
+        function saveEditedFood(food, nameInput, caloriesInput, proteinInput, carbsInput, fatsInput, table, row, foodsArray) {
+            // Update the food item with edited values
+            food.name = nameInput.value;
+            food.calories = parseInt(caloriesInput.value);
+            food.protein = parseFloat(proteinInput.value);
+            food.carbs = parseFloat(carbsInput.value);
+            food.fats = parseFloat(fatsInput.value);
+
+            // Display the updated values in the row
+            const nameCell = row.cells[0];
+            const caloriesCell = row.cells[1];
+            const proteinCell = row.cells[2];
+            const carbsCell = row.cells[3];
+            const fatsCell = row.cells[4];
+
+            nameCell.textContent = food.name;
+            caloriesCell.textContent = food.calories;
+            proteinCell.textContent = food.protein;
+            carbsCell.textContent = food.carbs;
+            fatsCell.textContent = food.fats;
+
+            // Replace the Save button with the Edit and Remove buttons
+            const actionCell = row.cells[5];
+            actionCell.innerHTML = "";
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.onclick = () => editFood(food, table, row, foodsArray);
+
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.onclick = () => removeFood(food, table, row, foodsArray);
+
+            actionCell.appendChild(editButton);
+            actionCell.appendChild(removeButton);
+
+            updateTotals();
+        }
+
+        function removeFood(food, table, row, foodsArray) {
+            const index = foodsArray.indexOf(food);
+            if (index !== -1) {
+                foodsArray.splice(index, 1);
+                updateTotals();
+                table.deleteRow(row.rowIndex);
+            }
+        }
+
+        function updateTotals() {
+            let caloriesTotal = 0;
+            let proteinTotal = 0;
+            let carbsTotal = 0;
+            let fatsTotal = 0;
+
+            breakfastFoods.forEach(food => {
+                caloriesTotal += food.calories;
+                proteinTotal += food.protein;
+                carbsTotal += food.carbs;
+                fatsTotal += food.fats;
+            });
+
+            lunchFoods.forEach(food => {
+                caloriesTotal += food.calories;
+                proteinTotal += food.protein;
+                carbsTotal += food.carbs;
+                fatsTotal += food.fats;
+            });
+
+            dinnerFoods.forEach(food => {
+                caloriesTotal += food.calories;
+                proteinTotal += food.protein;
+                carbsTotal += food.carbs;
+                fatsTotal += food.fats;
+            });
+
+            snackFoods.forEach(food => {
+                caloriesTotal += food.calories;
+                proteinTotal += food.protein;
+                carbsTotal += food.carbs;
+                fatsTotal += food.fats;
+            });
+
+            totalCalories.textContent = caloriesTotal;
+            totalProtein.textContent = proteinTotal;
+            totalCarbs.textContent = carbsTotal;
+            totalFats.textContent = fatsTotal;
+        }
+    </script>
+</body>
+</html>
