@@ -4,19 +4,38 @@
 
 <head>
     <title>weightTracker</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="weightTrackStyle.css"/>
 </head>
 
-<script src="program.js"></script>
+<script src="weightTrackProgram.js"></script>
 
 <body>
-    <label>Weight Tracker</label>
+    <div class = "title">
+        <label>Weight Tracker</label>
+    </div>
 
-    <div class="newExer">
-        <button class="newEntry">New Exercise</button>
+    <button class="button" href="#" onclick="show('popup')">Button</button>
+
+    <div class="popup" id="popup">
+        <p>Add your the name of your exercise and inital weight.</p>
+        <label>Exercise:</label>
+        <input type="exercise" id="exer" placeholder="exercise">
+        <br>
+        <label>Weight:</label>
+        <input type="weight" id="weighttrack" placeholder="weight">
+
+        <a href="#" onclick="hide('popup'); newExercise()">Add</a>
     </div>
 
     <div class="chart">
+        <h2>Personal Records</h2>
 
+        <table id="prTable">
+            <tr>
+                <th>Exercise</th>
+                <th>Calories</th>
+                
+            </tr>
+        </table>
     </div>
 </body>

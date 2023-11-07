@@ -1,26 +1,40 @@
+:root {
+    
+}
+
 .screen {
     background-color: bisque;
+    height: 100%;
+    width: 60%;
 }
 
 .welcome {
     text-align: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.pieTracker { 
-    width: 250px; 
-    height: 250px; 
-    border-radius: 50%; 
+.date {
+    text-align: center;
+    padding: 10px;
+}
+
+.pieTracker {
+    display: block; 
+    width: 400px; 
+    height: 400px; 
+    border-radius: 50%;
     background-image: conic-gradient( 
         pink 40%,  
         lightblue 0 60%); 
 } 
 
-body, 
-.pieTracker { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-} 
+body,
+    .pieTracker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
 .nav {
     display: flex;
