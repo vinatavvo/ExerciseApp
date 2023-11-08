@@ -14,7 +14,7 @@
         <label>Weight Tracker</label>
     </div>
 
-    <button class="button" href="#" onclick="show('popup')">Button</button>
+    <button class="addExercise" href="#" onclick="show('popup')">Add New Exercise</button>
 
     <div class="popup" id="popup">
         <p>Add your the name of your exercise and inital weight.</p>
@@ -27,14 +27,29 @@
         <a href="#" onclick="hide('popup'); newExercise()">Add</a>
     </div>
 
+    <div class="weightPop" id="weightPop">
+        <p>Give us your new pr!</p>
+        <label>New weight:</label>
+        <input type="newWeight" id="pr" placeholder="Weight">
+
+        <a href="#" onclick="hide('weightPop')">Add</a>
+    </div>
+
+    <div class="historyPop" id="historyPop">
+        <p>Give us your new pr!</p>
+        <label>New weight:</label>
+        <input type="newWeight" id="pr" placeholder="Weight">
+
+        <a href="#" onclick="hide('weightPop')">Add</a>
+    </div>
+
     <div class="chart">
         <h2>Personal Records</h2>
 
         <table id="prTable">
             <tr>
                 <th>Exercise</th>
-                <th>Calories</th>
-                
+                <th>Weight</th>
             </tr>
         </table>
     </div>
