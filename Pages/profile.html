@@ -27,9 +27,15 @@
         }
 
         .profile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin: auto;
+        }
+
+        .container img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            transform: scale(0.4);
+            margin-top: -100px;
         }
     </style>
 </head>
@@ -37,11 +43,9 @@
 <body>
     <div class="container">
         <!-- Profile -->
-            <!-- <div class="row" style="vertical-align: middle;">
-                <img class="profile" src="profile.png" alt="pfp" style="transform: scale(0.2);">
-            </div> -->
         <div class="row">
-            <h2 style="text-align: center;">@username</h2>
+            <img class="profile" src="profile.png" alt="pfp">
+            <h2 style="text-align: center; margin-top: -125px; margin-bottom: 50px;">@username</h2>
         </div>
 
         <!-- Bio -->
@@ -50,11 +54,13 @@
                 <h1> Profile </h1>
                 <!-- General Info -->
                 <label for="name">Name:</label>
-                <input type="text" id="nameInput" name="fname"><br><br>
+                <input type="text" id="nameInput"><br><br>
                 <label for="age">Age:</label>
-                <input type="number" id="ageInput" name="fname"><br><br>
+                <input type="number" id="ageInput"><br><br>
+                <label for="height">Height:</label>
+                <input type="number" id="heightInput"><br><br>
                 <label for="weight">Weight:</label>
-                <input type="number" id="weightInput" name="fname"><br><br>
+                <input type="number" id="weightInput"><br><br>
                 <!-- Goal -->
                 <label for="goal">Weight Goal:</label>
                 <select name="goal" id="goalInput">
