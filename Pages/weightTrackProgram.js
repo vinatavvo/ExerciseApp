@@ -26,19 +26,25 @@ function newExercise() {
 
     if(inputExer === '' || isNaN(inputWeight)) {
         alert("One of your inputs are not filled!");
-    } else {
+        return;
+    }
 
-        const exercise = {
-            name: inputExer,
-            weights: [inputWeight],
-            dates: [inputDate]
-        }
+    if(containExercise(inputExer) === true) {
+        alert("This exercise already exists. Please add your new PR in the respective weight below.");
+        return;
+    }
 
-        const exerDict = document.getElementById("prTable");
+    const exercise = {
+        name: inputExer,
+        weights: [inputWeight],
+        dates: [inputDate]
+    }
 
-        exerciseLst.push(exercise);
-        updateExerciseTable(exerDict, exercise, exerciseLst);
-    }  
+    const exerDict = document.getElementById("prTable");
+
+    exerciseLst.push(exercise);
+    updateExerciseTable(exerDict, exercise, exerciseLst);
+    
 
     document.getElementById("exer").value = "";
     document.getElementById("weighttrack").value = "";
@@ -106,4 +112,14 @@ function addWeight(row) {
 
     weight.textContent = weightInput;
     date.textContent = dateInput;
+}
+
+function containExercise (name) {
+    for(let i = 0; i < exerciseLst.length; i++) {
+        if (exerciseLst[i].name === name) {
+            return true;
+        }
+    }
+
+    return false;
 }
