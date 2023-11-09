@@ -10,47 +10,83 @@
 <script src="weightTrackProgram.js"></script>
 
 <body>
-    <div class = "title">
-        <label>Weight Tracker</label>
-    </div>
+    <div class="screen">
+        <div class = "title">
+            <label>Weight Tracker</label>
+        </div>
 
-    <button class="addExercise" href="#" onclick="show('popup')">Add New Exercise</button>
+        <button class="addExercise" href="#" onclick="show('popup')">Add New Exercise</button>
 
-    <div class="popup" id="popup">
-        <p>Add your the name of your exercise and inital weight.</p>
-        <label>Exercise:</label>
-        <input type="exercise" id="exer" placeholder="exercise">
-        <br>
-        <label>Weight:</label>
-        <input type="weight" id="weighttrack" placeholder="weight">
+        <div class="popup" id="popup">
+            <p>Add your the name of your exercise and inital weight.</p>
+            <label>Exercise:</label>
+            <input type="exercise" id="exer" placeholder="exercise">
+            <br>
+            <br>
+            <label>Weight:</label>
+            <input type="weight" id="weighttrack" placeholder="weight">
+            <br>
+            <br>
+            <label>Date:</label>
+            <input type="date" id="date">
 
-        <a href="#" onclick="hide('popup'); newExercise()">Add</a>
-    </div>
+            <a href="#" onclick="hide('popup'); newExercise()">Add</a>
+        </div>
 
-    <div class="weightPop" id="weightPop">
-        <p>Give us your new pr!</p>
-        <label>New weight:</label>
-        <input type="newWeight" id="pr" placeholder="Weight">
+        <div class="weightPop" id="weightPop">
+            <p>Give us your new pr!</p>
+            <label>New weight:</label>
+            <input type="newWeight" id="pr" placeholder="Weight">
 
-        <a href="#" onclick="hide('weightPop')">Add</a>
-    </div>
+            <a href="#" onclick="hide('weightPop'); addWeight(this)">Add</a>
+        </div>
 
-    <div class="historyPop" id="historyPop">
-        <p>Give us your new pr!</p>
-        <label>New weight:</label>
-        <input type="newWeight" id="pr" placeholder="Weight">
+        <div class="historyPop" id="histPop">
+            <p>Progress Chart</p>
 
-        <a href="#" onclick="hide('weightPop')">Add</a>
-    </div>
+            <table id="progress">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Weight (lbs)</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-    <div class="chart">
-        <h2>Personal Records</h2>
+                </tbody>
+            </table>
 
-        <table id="prTable">
-            <tr>
-                <th>Exercise</th>
-                <th>Weight</th>
-            </tr>
-        </table>
+            <a href="#" onclick="hide('histPop')">Close</a>
+        </div>
+
+        <div class="chart">
+            <h2>Personal Records</h2>
+
+            <table id="prTable">
+                <tr class="headers">
+                    <th class="prHeaders">Exercise</th>
+                    <th class="prHeaders">Date</th>
+                    <th class="prHeaders">Weight (lbs)</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="nav">
+            <A href="./workout.html">
+                <button id="workButton"></button>
+            </A>
+            <A href="./nutrition.html">
+                <button id="nutriButton"></button>
+            </A>
+            <A href="../index.html">
+                <button id="homeButton"></button>
+            </A>
+            <A href="./weightTracker.html">
+                <button id="trackButton"></button>
+            </A>
+            <A href="./profile.html">
+                <button id="profButton"></button>
+            </A>
+        </div>
     </div>
 </body>
