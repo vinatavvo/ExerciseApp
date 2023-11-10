@@ -1,5 +1,3 @@
-{
-    var totalCal = 3000;
-    var filedCal = 0;
-    var nonFillCall = totalCal-filedCal;
+window.onload = function(){
+    document.getElementById("remainingHome").textContent = 2000;
 }

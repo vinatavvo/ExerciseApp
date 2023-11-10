@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    font-size: 1.75rem;
+    text-shadow: 1px 1px 2px white
+}
+
+.container {
+    position:relative;
+    width: 393pt;
+    height: 852pt;
+    border-radius: 50px;
+    margin: 0 auto;
+    background-color: lightsteelblue;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+}
+
+
+
+td {
+    text-align: left;
+    padding: 10px;
+
+}
+
+input[type="number"] {
+    width: 100%;
+    background-color: whitesmoke;
+    opacity: 80%;
+}
+
+input[type="text"] {
+    width: 95%;
+    background-color: whitesmoke;
+    opacity: 80%;
+}
+
+tr {
+    background-color: antiquewhite;
+    opacity: 80%;
+
+}
+
+button {
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1px solid #7aa7c7;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #39739d;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    line-height: .2;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+fieldset {
+    border-color: transparent;
+    max-height: 120pt;
+    overflow-y: auto;
+    border-radius: 12px;
+}
+.screen {
+    overflow-y: auto;
+    height: 800pt;
+}
+.nav {
+    position: absolute;
+    bottom: 2%;
+    left: 10%
+  }
+  #workButton {
+    background-image: url(../Icons/icons8-gym-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #profButton {
+    background-image: url(../Icons/icons8-customer-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #nutriButton {
+    background-image: url(../Icons/icons8-diary-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #trackButton {
+    background-image: url(../Icons/icons8-progress-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #homeButton {
+    background-image: url(../Icons/icons8-home-48.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
