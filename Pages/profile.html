@@ -18,15 +18,68 @@
             margin: 0 auto;
             background-color: lightsteelblue;
             padding: 30px;
-            overflow-y:auto;
             height: 852pt;
             width: 393pt;
             border-radius: 50px;
             position: relative;
         }
 
+        .profileScreen {
+            overflow-y:auto;
+            height: 800pt;
+        }
+
         .nav {
+            position: absolute;
+            bottom: 2%;
+            left: 9%;
             margin-top: 60px;
+            background-color: #e1ecf4;
+        }
+
+        #workButton {
+            background-image: url(../Icons/icons8-gym-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+            
+        #profButton {
+            background-image: url(../Icons/icons8-customer-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #nutriButton {
+            background-image: url(../Icons/icons8-diary-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #trackButton {
+            background-image: url(../Icons/icons8-progress-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #homeButton {
+            background-image: url(../Icons/icons8-home-48.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
         }
 
         .info {
@@ -53,14 +106,13 @@
         }
 
         .editButt{
-            position: absolute;
-            left: 10%;
+            left: 5%;
         }
 
         .saveButt{
-            position: absolute;
-            right: 10%;
+            left: 65%;
         }
+
         input, textarea, select {
             padding: 10px;
             border: none;
@@ -110,6 +162,7 @@
 
 <body>
     <div class="container">
+        <div class="profileScreen">
         <!-- Profile -->
         <div class="row">
             <div class="profile">
@@ -161,7 +214,6 @@
                 </form>
             </div>
         </div>
-        
         <!-- Save Data -->
         <div class="row">
             <div class="save">
@@ -169,6 +221,8 @@
                 <button class="saveButt" type="button" onclick="disable()">Save Profile</button>
             </div>
         </div>
+        <div class="row" style="margin-bottom: 60px;">
+    </div>
 
         <div class="nav">
             <A href="./workout.html">
