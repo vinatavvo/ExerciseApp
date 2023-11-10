@@ -10,6 +10,24 @@ var hide = function(id) {
     $(id).style.display ='none';
 }
 
+window.onload = function() {
+    exerciseLst = localStorage.getItem("exerciseLst");
+
+    if (exerciseLst === null) {
+        exerciseLst = [];
+    } else {
+        const table = document.getElementById("prTable");
+
+        exerciseLst = JSON.parse(localStorage.getItem("exerciseLst"));
+
+        for(let i = 0; i < exerciseLst.length; i++) {
+            console.log(exerciseLst[i]);
+            updateExerciseTable(table, exerciseLst[i]);
+        }
+    }
+}
+
+console.log(localStorage);
 
 function clear(id) {
     if (id.value != null) {
@@ -17,7 +35,6 @@ function clear(id) {
     }
 }
 
-const exerciseLst = [];
 
 function newExercise() {
     var inputExer = document.getElementById("exer").value; //grab exercise
@@ -43,14 +60,14 @@ function newExercise() {
     const exerDict = document.getElementById("prTable");
 
     exerciseLst.push(exercise);
-    updateExerciseTable(exerDict, exercise, exerciseLst);
+    updateExerciseTable(exerDict, exercise);
     
 
     document.getElementById("exer").value = "";
     document.getElementById("weighttrack").value = "";
 }
 
-function updateExerciseTable(table, exercise, lst) {
+function updateExerciseTable(table, exercise) {
     const newRow = table.insertRow(-1);
 
     const nameCell = newRow.insertCell(0);
@@ -70,12 +87,13 @@ function updateExerciseTable(table, exercise, lst) {
     historyButton.textContent = "Check History";
     historyButton.onclick = () => giveHistory(newRow);
 
+    localStorage.setItem("exerciseLst", JSON.stringify(exerciseLst));
+
     buttonCell.appendChild(addButton);
     buttonCell.appendChild(historyButton);
 }
 
 function giveHistory(row) {
-
     const exercise = row.cells[0].innerText;
     const table = document.getElementById("progress").querySelector("tbody");
     table.innerHTML = "";
@@ -91,7 +109,6 @@ function giveHistory(row) {
     }
 
     show('histPop');
-
 }
 
 function addWeight(row) {
@@ -112,6 +129,8 @@ function addWeight(row) {
 
     weight.textContent = weightInput;
     date.textContent = dateInput;
+
+    localStorage.setItem("exerciseLst", JSON.stringify(exerciseLst));
 }
 
 function containExercise (name) {
