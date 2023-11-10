@@ -3,8 +3,9 @@ let breakfastFoods = [];
 let lunchFoods = [];
 let dinnerFoods = [];
 let snackFoods = [];
-
-
+let goalCalories = 0;
+let totalCalories = 0;
+let remaining = 0;
 function addFood(mealType) {
 
     const breakfastTable = document.getElementById("breakfastTable");
@@ -214,6 +215,26 @@ function updateTotals() {
     totalProtein.textContent = proteinTotal;
     totalCarbs.textContent = carbsTotal;
     totalFats.textContent = fatsTotal;
+    document.getElementById("remaining").textContent = (parseInt(goalCalories)- totalCalories.textContent);
+ 
 }
 
+window.onload = function(){
+    
+    let age = localStorage.getItem("age");
+    let height = localStorage.getItem("height");
+    let weight = localStorage.getItem("weight");
+    let goal = localStorage.getItem("goal");
+
+    goalCalories = (66.47 + (6.24*weight) + (12.7*height) - (6.8*age))*1.375;
+
+    if (goal === "gaining"){
+        goalCalories += 300;
+    } else if (goal==="losing"){
+        goalCalories -= 300;
+    }
+    document.getElementById("goalCalorie").textContent = parseInt(goalCalories);
+    document.getElementById("remaining").textContent = parseInt(goalCalories);
+    
+}
 

@@ -3,8 +3,6 @@ window.onload = function(){
 
     for (let i = 0; i < info.length; i++) {
         if(localStorage.getItem(info[i]) !== null){
-            console.log("im in");
-            console.log(localStorage.getItem(info[i]));
             document.getElementById(info[i] + "Input").value = localStorage.getItem(info[i]);
         }
     }

@@ -6,138 +6,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calorie Tracker</title>
     <link rel="stylesheet" href="/nutrition-style.css">
-    <script src="nutrition.js"></script>
+    <script type="text/javascript" src="./profile.js"></script> 
+    <script type="text/javascript" src="nutrition.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <fieldset>
-            <h2>Calories Remaining</h2>
-            <table id="caloriesRemaining">
+        <div class="screen" style="margin-bottom:60px">
+            <fieldset>
+                <h2>Calories Remaining</h2>
+                <table id="caloriesRemaining">
+                    <tr>
+                        <th>Goal:</th>
+                        <td id="goalCalorie">xxxx</td>
+                        <th>-</th>
+                        <th>Food</th>
+                        <td id="total-calories-cell">0</td>
+                        <th>= Remaining</th>
+                        <td id="remaining">0</td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <form id="food-form">
+                <fieldset>
+                    <!-- BREAKFAST -->
+                    <h2>Breakfast</h2>
+                    <table id="breakfastTable">
+                        <tr>
+                            <th>Food Item</th>
+                            <th>Calories</th>
+                            <th>Protein (g)</th>
+                            <th>Carbs (g)</th>
+                            <th>Fats (g)</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="breakfast-food-name"></td>
+                            <td><input type="number" id="breakfast-calories"></td>
+                            <td><input type="number" id="breakfast-protein"></td>
+                            <td><input type="number" id="breakfast-carbs"></td>
+                            <td><input type="number" id="breakfast-fats"></td>
+                            <td><button type="button" onclick="addFood('breakfast')">Add Food</button></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <!-- LUNCH -->
+                    <h2>Lunch</h2>
+                    <table id="lunchTable">
+                        <tr>
+                            <th>Food Item</th>
+                            <th>Calories</th>
+                            <th>Protein (g)</th>
+                            <th>Carbs (g)</th>
+                            <th>Fats (g)</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="lunch-food-name"></td>
+                            <td><input type="number" id="lunch-calories"></td>
+                            <td><input type="number" id="lunch-protein"></td>
+                            <td><input type="number" id="lunch-carbs"></td>
+                            <td><input type="number" id="lunch-fats"></td>
+                            <td><button type="button" onclick="addFood('lunch')">Add Food</button></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <!-- DINNER -->
+                    <h2>Dinner</h2>
+                    <table id="dinnerTable">
+                        <tr>
+                            <th>Food Item</th>
+                            <th>Calories</th>
+                            <th>Protein (g)</th>
+                            <th>Carbs (g)</th>
+                            <th>Fats (g)</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="dinner-food-name"></td>
+                            <td><input type="number" id="dinner-calories"></td>
+                            <td><input type="number" id="dinner-protein"></td>
+                            <td><input type="number" id="dinner-carbs"></td>
+                            <td><input type="number" id="dinner-fats"></td>
+                            <td><button type="button" onclick="addFood('dinner')">Add Food</button></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <!-- SNACKS -->
+                    <h2>Snacks</h2>
+                    <table id="snackTable">
+                        <tr>
+                            <th>Food Item</th>
+                            <th>Calories</th>
+                            <th>Protein (g)</th>
+                            <th>Carbs (g)</th>
+                            <th>Fats (g)</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="snack-food-name"></td>
+                            <td><input type="number" id="snack-calories"></td>
+                            <td><input type="number" id="snack-protein"></td>
+                            <td><input type="number" id="snack-carbs"></td>
+                            <td><input type="number" id="snack-fats"></td>
+                            <td><button type="button" onclick="addFood('snack')">Add Food</button></td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <fieldset>
+                    <!-- BODYWEIGHT -->
+                    <h2>Bodyweight Track</h2>
+                    <table id="bodyweight">
+                        <th><a href="bodyweight.html">Click for more information </a></th>
+                    </table>
+                </fieldset>
+
+            </form>
+
+            <table id="totals">
+                <h2>Totals</h2>
                 <tr>
-                    <th>Goal:</th>
-                    <td>2400</td>
-                    <th>-</th>
-                    <th>Food</th>
-                    <td id="total-calories-cell">0</td>
-                    <th>= Remaining</th>
-                    <td id="remaining">remaining</td>
+                    <td>Calories: <span id="total-calories">0</span></td>
+                    <td>Protein (g): <span id="total-protein">0</span></td>
+                    <td>Carbs (g): <span id="total-carbs">0</span></td>
+                    <td>Fats (g): <span id="total-fats">0</span></td>
                 </tr>
             </table>
-        </fieldset>
-
-        <form id="food-form">
-            <fieldset>
-                <!-- BREAKFAST -->
-                <h2>Breakfast</h2>
-                <table id="breakfastTable">
-                    <tr>
-                        <th>Food Item</th>
-                        <th>Calories</th>
-                        <th>Protein (g)</th>
-                        <th>Carbs (g)</th>
-                        <th>Fats (g)</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="breakfast-food-name"></td>
-                        <td><input type="number" id="breakfast-calories"></td>
-                        <td><input type="number" id="breakfast-protein"></td>
-                        <td><input type="number" id="breakfast-carbs"></td>
-                        <td><input type="number" id="breakfast-fats"></td>
-                        <td><button type="button" onclick="addFood('breakfast')">Add Food</button></td>
-                    </tr>
-                </table>
-            </fieldset>
-
-            <fieldset>
-                <!-- LUNCH -->
-                <h2>Lunch</h2>
-                <table id="lunchTable">
-                    <tr>
-                        <th>Food Item</th>
-                        <th>Calories</th>
-                        <th>Protein (g)</th>
-                        <th>Carbs (g)</th>
-                        <th>Fats (g)</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="lunch-food-name"></td>
-                        <td><input type="number" id="lunch-calories"></td>
-                        <td><input type="number" id="lunch-protein"></td>
-                        <td><input type="number" id="lunch-carbs"></td>
-                        <td><input type="number" id="lunch-fats"></td>
-                        <td><button type="button" onclick="addFood('lunch')">Add Food</button></td>
-                    </tr>
-                </table>
-            </fieldset>
-
-            <fieldset>
-                <!-- DINNER -->
-                <h2>Dinner</h2>
-                <table id="dinnerTable">
-                    <tr>
-                        <th>Food Item</th>
-                        <th>Calories</th>
-                        <th>Protein (g)</th>
-                        <th>Carbs (g)</th>
-                        <th>Fats (g)</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="dinner-food-name"></td>
-                        <td><input type="number" id="dinner-calories"></td>
-                        <td><input type="number" id="dinner-protein"></td>
-                        <td><input type="number" id="dinner-carbs"></td>
-                        <td><input type="number" id="dinner-fats"></td>
-                        <td><button type="button" onclick="addFood('dinner')">Add Food</button></td>
-                    </tr>
-                </table>
-            </fieldset>
-
-            <fieldset>
-                <!-- SNACKS -->
-                <h2>Snacks</h2>
-                <table id="snackTable">
-                    <tr>
-                        <th>Food Item</th>
-                        <th>Calories</th>
-                        <th>Protein (g)</th>
-                        <th>Carbs (g)</th>
-                        <th>Fats (g)</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="snack-food-name"></td>
-                        <td><input type="number" id="snack-calories"></td>
-                        <td><input type="number" id="snack-protein"></td>
-                        <td><input type="number" id="snack-carbs"></td>
-                        <td><input type="number" id="snack-fats"></td>
-                        <td><button type="button" onclick="addFood('snack')">Add Food</button></td>
-                    </tr>
-                </table>
-            </fieldset>
-
-            <fieldset>
-                <!-- BODYWEIGHT -->
-                <h2>Bodyweight Track</h2>
-                <table id="bodyweight">
-                    <th><a href="bodyweight.html">Click for more information </a></th>
-                </table>
-            </fieldset>
-
-        </form>
-
-        <table id="totals">
-            <h2>Totals</h2>
-            <tr>
-                <td>Calories: <span id="total-calories">0</span></td>
-                <td>Protein (g): <span id="total-protein">0</span></td>
-                <td>Carbs (g): <span id="total-carbs">0</span></td>
-                <td>Fats (g): <span id="total-fats">0</span></td>
-            </tr>
-        </table>
+        </div>
+        <div class="nav">
+            <A type="button" href="./workout.html">
+                <button id="workButton"></button>
+            </A>
+            <A type="button" href="./nutrition.html">
+                <button id="nutriButton"></button>
+            </A>
+            <A type="button" href="../index.html">
+                <button id="homeButton"></button>
+            </A>
+            <A type="button" href="./weightTracker.html">
+                <button id="trackButton"></button>
+            </A>
+            <A type="button" href="./profile.html">
+                <button id="profButton"></button>
+            </A>
+        </div>
     </div>
 </body>
 

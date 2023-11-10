@@ -13,12 +13,14 @@ h2 {
 }
 
 .container {
+    position:relative;
     width: 393pt;
     height: 852pt;
     border-radius: 50px;
     margin: 0 auto;
     background-color: lightsteelblue;
     padding: 30px;
+    overflow-y: auto;
 }
 
 table {
@@ -80,3 +82,57 @@ fieldset {
     overflow-y: auto;
     border-radius: 12px;
 }
+.screen {
+    overflow-y: auto;
+    height: 800pt;
+}
+.nav {
+    position: absolute;
+    bottom: 2%;
+    left: 10%
+  }
+  #workButton {
+    background-image: url(../Icons/icons8-gym-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #profButton {
+    background-image: url(../Icons/icons8-customer-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #nutriButton {
+    background-image: url(../Icons/icons8-diary-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #trackButton {
+    background-image: url(../Icons/icons8-progress-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  
+  #homeButton {
+    background-image: url(../Icons/icons8-home-48.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:12px;
+    height: 60px;
+    width: 90px;
+  }
+  

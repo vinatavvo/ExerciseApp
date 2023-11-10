@@ -1,0 +1,128 @@
+.container {
+    position:relative;
+    width: 393pt;
+    height: 852pt;
+    border-radius: 50px;
+    margin: 0 auto;
+    background-color: lightsteelblue;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.input-container {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    opacity: 75%;
+}
+
+.graph-container {
+    margin-top: 20px;
+}
+
+h1 {
+    margin: 0;
+    color: black;
+    text-shadow: 1px 1px 2px white
+}
+
+h2 {
+    font-size: 1.75rem;
+    color: black;
+    text-shadow: 1px 1px 2px white
+}
+
+button {
+    background-color: antiquewhite;
+    opacity: 80%;
+    border-radius: 12px;
+    height: 3rem;
+
+}
+
+input[type="number"] {
+    height: 3rem;
+    max-width: 50%;
+    font-size: 2rem;
+    text-align: center;
+    background-color: whitesmoke;
+    opacity: 80%;
+}
+
+.nav {
+    position: absolute;
+    bottom: 2%;
+    left: 10%
+}
+
+.screen {
+    overflow-y: auto;
+    height: 800pt;
+}
+
+#workButton {
+    background-image: url(../Icons/icons8-gym-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px;
+    height: 60px;
+    width: 90px;
+}
+
+#profButton {
+    background-image: url(../Icons/icons8-customer-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px;
+    height: 60px;
+    width: 90px;
+}
+
+#nutriButton {
+    background-image: url(../Icons/icons8-diary-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px;
+    height: 60px;
+    width: 90px;
+}
+
+#trackButton {
+    background-image: url(../Icons/icons8-progress-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px;
+    height: 60px;
+    width: 90px;
+}
+
+#homeButton {
+    background-image: url(../Icons/icons8-home-48.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 12px;
+    height: 60px;
+    width: 90px;
+}
