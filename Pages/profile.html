@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <script type="text/javascript" src="./profile.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,9 +19,14 @@
             background-color: lightsteelblue;
             padding: 30px;
             overflow-y:auto;
-            max-height: 852px;
-            width: 393px;
+            height: 852pt;
+            width: 393pt;
             border-radius: 50px;
+            position: relative;
+        }
+
+        .nav {
+            margin-top: 60px;
         }
 
         .info {
@@ -47,6 +52,24 @@
             display: flex; 
         }
 
+        .editButt{
+            position: absolute;
+            left: 10%;
+        }
+
+        .saveButt{
+            position: absolute;
+            right: 10%;
+        }
+        input, textarea, select {
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid lightsteelblue;          
+            width: 95%;
+            margin-right: 40px;
+            font-size: 14px;
+        }
+
         button {
             background-color: #e1ecf4;
             border-radius: 3px;
@@ -68,7 +91,6 @@
             white-space: nowrap;
         }
 
-        button:hover,
         button:focus {
             background-color: #b3d3ea;
             color: #2c5777;
@@ -92,7 +114,7 @@
         <div class="row">
             <div class="profile">
                 <img src="profile.png" alt="pfp">
-                <h2 style="margin-top: -100px; margin-bottom: 30px;">@username</h2>
+                <h2 style="margin-top: -125px; margin-bottom: 50px;">@username</h2>
             </div>
     
         </div>
@@ -101,22 +123,27 @@
         <div class="row">
             <h1> Profile </h1>
             <div class="info">
-                <!-- General Info -->
-                <label for="name">Name:</label>
-                <input type="text" id="nameInput"><br><br>
-                <label for="age">Age:</label>
-                <input type="number" id="ageInput"><br><br>
-                <label for="height">Height:</label>
-                <input type="number" id="heightInput"><br><br>
-                <label for="weight">Weight:</label>
-                <input type="number" id="weightInput"><br><br>
-                <!-- Goal -->
-                <label for="goal">Weight Goal:</label>
-                <select name="goal" id="goalInput">
-                    <option value="volvo">Gaining</option>
-                    <option value="saab">Maintaining</option>
-                    <option value="mercedes">Losing</option>
-                </select>
+                <form>
+                    <!-- General Info -->
+                    <label for="nameInput">Name:</label>
+                    <input type="text" id="nameInput" disabled="true"><br><br>
+                    <label for="ageInput">Age:</label>
+                    <input type="number" id="ageInput" disabled="true"><br><br>
+                    <label for="heightInput">Height:</label>
+                    <input type="number" id="heightInput" disabled="true"><br><br>
+                    <label for="weightInput">Weight (lbs):</label>
+                    <input type="number" id="weightInput" disabled="true"><br><br>
+                    <!-- Goal -->
+                    <label for="goalInput">Weight Goal:</label>
+                    <select name="goal" id="goalInput" disabled="true">
+                        <option value="gaining">Gaining</option>
+                        <option value="maintaining">Maintaining</option>
+                        <option value="losing">Losing</option>
+                    </select><br><br>
+                    <!-- Bio -->
+                    <label for="bioInput">Bio:</label>
+                    <textarea type="text" id="bioInput" disabled="true"></textarea><br><br>
+                </form>
             </div>
         </div>
 
@@ -124,20 +151,22 @@
         <div class="row">
             <h1> PRS </h1>
             <div class="info">
-                <label for="bench">Bench:</label>
-                <input type="number" id="benchInput" name="fname"><br><br>
-                <label for="squat">Squat:</label>
-                <input type="number" id="squatInput" name="fname"><br><br>
-                <label for="deadlift">Deadlift::</label>
-                <input type="number" id="deadliftInput" name="fname"><br><br>
+                <form>
+                    <label for="benchInput">Bench:</label>
+                    <input type="number" id="benchInput" disabled="true"><br><br>
+                    <label for="squatInput">Squat:</label>
+                    <input type="number" id="squatInput" disabled="true"><br><br>
+                    <label for="deadliftInput">Deadlift:</label>
+                    <input type="number" id="deadliftInput" disabled="true"><br><br>
+                </form>
             </div>
         </div>
         
         <!-- Save Data -->
         <div class="row">
             <div class="save">
-                <button type="button" >Edit Profile</button>
-                <button type="button" style="justify-content: right;">Save Profile</button>
+                <button class="editButt" type="button" onclick="enable()">Edit Profile</button>
+                <button class="saveButt" type="button" onclick="disable()">Save Profile</button>
             </div>
         </div>
 
