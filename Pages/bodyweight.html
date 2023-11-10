@@ -5,107 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bodyweight Tracker</title>
-
-    <style>
-        .container {
-            width: 393pt;
-            height: 852pt;
-            border-radius: 50px;
-            margin: 0 auto;
-            background-color: lightsteelblue;
-            padding: 30px;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-
-        .input-container {
-            margin: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid #ddd;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            text-align: center;
-            background-color: white;
-            opacity:75%;
-        }
-
-        .graph-container {
-            margin-top: 20px;
-        }
-
-        h1 {
-            margin: 0;
-            color:black;
-            text-shadow: 1px 1px 2px white
-        }
-        h2{
-            font-size:1.75rem;
-            color:black;
-            text-shadow: 1px 1px 2px white
-        }
-        button {
-            background-color: antiquewhite;
-            opacity: 80%;
-            border-radius:12px;
-            height:3rem;
-           
-        }
-        input[type="number"] {
-            height:3rem;
-            max-width:50%;
-            font-size:2rem;
-            text-align:center;
-            background-color: whitesmoke;
-            opacity: 80%;
-        }
-    </style>
+    <link rel="stylesheet" href="bodyweight.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Bodyweight Tracker</h1>
-        <div class="input-container">
-            <label for="date">Date:</label>
-            <input type="date" id="date"><br><br>
-            <label for="weight">Weight (lb):</label>
-            <input type="number" id="weight" step="0.01">
-            <button id="add-entry">Add Entry</button><br><br>
-            <a href="nutrition.html">Go Back to Calorie Tracking</a>
-        </div>
-
-        <div class="table-container">
-            <h2>Weight Entries</h2>
-            <table id="weight-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Weight (lb)</th>
-                    </tr>
-                </thead>
-                <tbody>
-             
-                </tbody>
-            </table>
-        </div>
-
-        <div class="graph-container">
-            <h2>Weight Progress Graph</h2>
-            <canvas id="weight-chart" width="400" height="200"></canvas>
+        <div class="screen" style="margin-bottom:60px">
+            <h1>Bodyweight Tracker</h1>
+            <div class="input-container">
+                <label for="date">Date:</label>
+                <input type="date" id="date"><br><br>
+                <label for="weight">Weight (lb):</label>
+                <input type="number" id="weight" step="0.01">
+                <button id="add-entry">Add Entry</button><br><br>
+                <a href="nutrition.html">Go Back to Calorie Tracking</a>
+            </div>
+            <div class="table-container">
+                <h2>Weight Entries</h2>
+                <table id="weight-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Weight (lb)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                 
+                    </tbody>
+                </table>
+            </div>
+            <div class="graph-container">
+                <h2>Weight Progress Graph</h2>
+                <canvas id="weight-chart" width="400" height="200"></canvas>
+            </div>
+            <div class="nav">
+                <A type="button" href="./workout.html">
+                    <button id="workButton"></button>
+                </A>
+                <A type="button" href="./nutrition.html">
+                    <button id="nutriButton"></button>
+                </A>
+                <A type="button" href="../index.html">
+                    <button id="homeButton"></button>
+                </A>
+                <A type="button" href="./weightTracker.html">
+                    <button id="trackButton"></button>
+                </A>
+                <A type="button" href="./profile.html">
+                    <button id="profButton"></button>
+                </A>
+            </div>
         </div>
     </div>
 </body>
