@@ -18,15 +18,68 @@
             margin: 0 auto;
             background-color: lightsteelblue;
             padding: 30px;
-            overflow-y:auto;
-            height: 852pt;
-            width: 393pt;
+            height: 1280pt;
+            width: 768pt;
             border-radius: 50px;
             position: relative;
         }
 
+        .profileSection {
+            overflow-y: auto;
+            height: 1000pt;
+        }
+
         .nav {
+            position: absolute;
+            bottom: 0;
+            left: 9%;
             margin-top: 60px;
+            background-color: #e1ecf4;
+        }
+
+        #workButton {
+            background-image: url(../Icons/icons8-gym-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+            
+        #profButton {
+            background-image: url(../Icons/icons8-customer-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #nutriButton {
+            background-image: url(../Icons/icons8-diary-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #trackButton {
+            background-image: url(../Icons/icons8-progress-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #homeButton {
+            background-image: url(../Icons/icons8-home-48.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
         }
 
         .info {
@@ -53,14 +106,15 @@
         }
 
         .editButt{
-            position: absolute;
-            left: 10%;
+            position:relative;
+            left: 5%;
         }
 
         .saveButt{
-            position: absolute;
-            right: 10%;
+            position:relative;
+            left: 70%;
         }
+
         input, textarea, select {
             padding: 10px;
             border: none;
@@ -110,7 +164,7 @@
 
 <body>
     <div class="container">
-        <!-- Profile -->
+            <!-- Profile -->
         <div class="row">
             <div class="profile">
                 <img src="profile.png" alt="pfp">
@@ -119,49 +173,51 @@
     
         </div>
 
-        <!-- Bio -->
-        <div class="row">
-            <h1> Profile </h1>
-            <div class="info">
-                <form>
-                    <!-- General Info -->
-                    <label for="nameInput">Name:</label>
-                    <input type="text" id="nameInput" disabled="true"><br><br>
-                    <label for="ageInput">Age:</label>
-                    <input type="number" id="ageInput" disabled="true"><br><br>
-                    <label for="heightInput">Height (inches):</label>
-                    <input type="number" id="heightInput" disabled="true"><br><br>
-                    <label for="weightInput">Weight (lbs):</label>
-                    <input type="number" id="weightInput" disabled="true"><br><br>
-                    <!-- Goal -->
-                    <label for="goalInput">Weight Goal:</label>
-                    <select name="goal" id="goalInput" disabled="true">
-                        <option value="gaining">Gaining</option>
-                        <option value="maintaining">Maintaining</option>
-                        <option value="losing">Losing</option>
-                    </select><br><br>
-                    <!-- Bio -->
-                    <label for="bioInput">Bio:</label>
-                    <textarea type="text" id="bioInput" disabled="true"></textarea><br><br>
-                </form>
+            <!-- Bio -->
+        <div class="profileSection">
+            <div class="row">
+                <h1> Profile </h1>
+                <div class="info">
+                    <form>
+                        <!-- General Info -->
+                        <label for="nameInput">Name:</label>
+                        <input type="text" id="nameInput" disabled="true"><br><br>
+                        <label for="ageInput">Age:</label>
+                        <input type="number" id="ageInput" disabled="true"><br><br>
+                        <label for="heightInput">Height (inches):</label>
+                        <input type="number" id="heightInput" disabled="true"><br><br>
+                        <label for="weightInput">Weight (lbs):</label>
+                        <input type="number" id="weightInput" disabled="true"><br><br>
+                        <!-- Goal -->
+                        <label for="goalInput">Weight Goal:</label>
+                        <select name="goal" id="goalInput" disabled="true">
+                            <option value="gaining">Gaining</option>
+                            <option value="maintaining">Maintaining</option>
+                            <option value="losing">Losing</option>
+                        </select><br><br>
+                        <!-- Bio -->
+                        <label for="bioInput">Bio:</label>
+                        <textarea type="text" id="bioInput" disabled="true"></textarea><br><br>
+                    </form>
+                </div>
+            </div>
+
+            <!-- PR -->
+            <div class="row">
+                <h1> PRS </h1>
+                <div class="info">
+                    <form>
+                        <label for="benchInput">Bench:</label>
+                        <input type="number" id="benchInput" disabled="true"><br><br>
+                        <label for="squatInput">Squat:</label>
+                        <input type="number" id="squatInput" disabled="true"><br><br>
+                        <label for="deadliftInput">Deadlift:</label>
+                        <input type="number" id="deadliftInput" disabled="true"><br><br>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <!-- PR -->
-        <div class="row">
-            <h1> PRS </h1>
-            <div class="info">
-                <form>
-                    <label for="benchInput">Bench:</label>
-                    <input type="number" id="benchInput" disabled="true"><br><br>
-                    <label for="squatInput">Squat:</label>
-                    <input type="number" id="squatInput" disabled="true"><br><br>
-                    <label for="deadliftInput">Deadlift:</label>
-                    <input type="number" id="deadliftInput" disabled="true"><br><br>
-                </form>
-            </div>
-        </div>
-        
         <!-- Save Data -->
         <div class="row">
             <div class="save">
@@ -186,7 +242,7 @@
             <A href="./profile.html">
                 <button id="profButton"></button>
             </A>
-        </div>
+        </div> 
     </div>
 
 </body>

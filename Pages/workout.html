@@ -19,15 +19,24 @@
             margin: 0 auto;
             background-color: lightsteelblue;
             padding: 30px;
-            overflow-y:auto;
-            max-height: 852pt;
+            height: 852pt;
             width: 393pt;
             border-radius: 50px;
             margin-bottom: 60px;
+            position: relative;
+        }
+
+        .workoutLst {
+            overflow-y:auto;
+            height: 852pt;
         }
 
         .nav {
+            position: absolute;
+            bottom: 0;
+            left: 9%;
             margin-top: 60px;
+            background-color: #e1ecf4;
         }
 
         .exercise {
@@ -77,232 +86,279 @@
             box-shadow: none;
             color: #2c5777;
         }
+
+        #workButton {
+            background-image: url(../Icons/icons8-gym-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+            
+        #profButton {
+            background-image: url(../Icons/icons8-customer-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #nutriButton {
+            background-image: url(../Icons/icons8-diary-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #trackButton {
+            background-image: url(../Icons/icons8-progress-50.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
+        
+        #homeButton {
+            background-image: url(../Icons/icons8-home-48.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            padding:12px;
+            height: 60px;
+            width: 90px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- Ab Exercises -->
-        <div class="row">
-            <h1>Abs</h1>
-            <div class="exercise">
-                <li><b>Plank</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(1)">Toggle Video</button></li>
-                    <ul> Rec: 5 sets of up to 10-20 seconds</ul>
-                    <div hidden id="vid1" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/plank.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Side Plank</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(2)">Toggle Video</button></li>
-                    <ul> Rec: 3 sets of 5–8 reps per side</ul>
-                    <div hidden id="vid2" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/sideplank.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Plank Walkup</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(3)">Toggle Video</button></li>
-                <ul> Rec: 3-4 sets of 5–8 reps</ul>
-                    <div hidden id="vid3" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/plankwalkup.mp4" type="video/mp4">
-                        </video>
-                    </div>
-            </div>
-        </div>
-        
-        <!-- Arm Exercises -->
-        <div class="row">
-            <h1>Arms</h1>
-            <div class="exercise">
-                <li><b>Pull Up</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(4)">Toggle Video</button></li>
-                    <ul> Rec: 3 sets of 8 reps</ul>
-                    <div hidden id="vid4" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/pullup.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Face Pull</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(5)">Toggle Video</button></li>
-                    <ul> Rec: 2–3 sets of 10–15 reps</ul>
-                    <div hidden id="vid5" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/facepull.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Kettlebell Crush Curl with Squat</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(6)">Toggle Video</button></li>
-                <ul> Rec: 4 sets of 12-15 reps</ul>
-                <div hidden id="vid6" class="vid">
-                    <video width="320" height="240" controls>
-                        <source src="exercise vids/kettleball.mp4" type="video/mp4">
-                    </video>
+        <div class="workoutLst">
+            <!-- Ab Exercises -->
+            <div class="row">
+                <h1>Abs</h1>
+                <div class="exercise">
+                    <li><b>Plank</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(1)">Toggle Video</button></li>
+                        <ul> Rec: 5 sets of up to 10-20 seconds</ul>
+                        <div hidden id="vid1" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/plank.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Side Plank</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(2)">Toggle Video</button></li>
+                        <ul> Rec: 3 sets of 5–8 reps per side</ul>
+                        <div hidden id="vid2" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/sideplank.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Plank Walkup</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(3)">Toggle Video</button></li>
+                    <ul> Rec: 3-4 sets of 5–8 reps</ul>
+                        <div hidden id="vid3" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/plankwalkup.mp4" type="video/mp4">
+                            </video>
+                        </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Back Exercises -->
-        <div class="row">
-            <h1>Back</h1>
-            <div class="exercise">
-                <li><b>Pull Up</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(7)">Toggle Video</button></li>
-                    <ul> Rec: 3 sets of 8 reps</ul>
-                    <div hidden id="vid7" class="vid">
+            
+            <!-- Arm Exercises -->
+            <div class="row">
+                <h1>Arms</h1>
+                <div class="exercise">
+                    <li><b>Pull Up</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(4)">Toggle Video</button></li>
+                        <ul> Rec: 3 sets of 8 reps</ul>
+                        <div hidden id="vid4" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/pullup.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Face Pull</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(5)">Toggle Video</button></li>
+                        <ul> Rec: 2–3 sets of 10–15 reps</ul>
+                        <div hidden id="vid5" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/facepull.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Kettlebell Crush Curl with Squat</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(6)">Toggle Video</button></li>
+                    <ul> Rec: 4 sets of 12-15 reps</ul>
+                    <div hidden id="vid6" class="vid">
                         <video width="320" height="240" controls>
-                            <source src="exercise vids/pullup.mp4" type="video/mp4">
+                            <source src="exercise vids/kettleball.mp4" type="video/mp4">
                         </video>
                     </div>
-                <li><b>Face Pull</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(8)">Toggle Video</button></li>
-                    <ul> Rec: 2–3 sets of 10–15 reps</ul>
-                    <div hidden id="vid8" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/facepull.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Seated Machine Row: Close Grip</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(9)">Toggle Video</button></li>
-                    <ul> Rec: 1–2 sets of 12–15 reps</ul>
-                    <div hidden id="vid9" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/rows.mp4" type="video/mp4">
-                        </video>
-                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Butt/Hip Exercises -->
-        <div class="row">
-            <h1>Butt/Hips</h1>
-            <div class="exercise">
-                <li><b>Barbell Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(10)">Toggle Video</button></li>
-                    <ul> Rec: 3-4 sets of 2-6 reps</ul>
-                    <div hidden id="vid10" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/barbelldeadlift.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Plank</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(11)">Toggle Video</button></li>
-                    <ul> Rec: 5 sets of up to 10-20 seconds</ul>
-                    <div hidden id="vid11" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/plank.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Romanian Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(12)">Toggle Video</button></li>
-                    <ul> Rec: 3-5 sets of up 6-12 reps</ul>
-                    <div hidden id="vid12" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/romaniandeadlift.mp4" type="video/mp4">
-                        </video>
-                    </div>
+            <!-- Back Exercises -->
+            <div class="row">
+                <h1>Back</h1>
+                <div class="exercise">
+                    <li><b>Pull Up</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(7)">Toggle Video</button></li>
+                        <ul> Rec: 3 sets of 8 reps</ul>
+                        <div hidden id="vid7" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/pullup.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Face Pull</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(8)">Toggle Video</button></li>
+                        <ul> Rec: 2–3 sets of 10–15 reps</ul>
+                        <div hidden id="vid8" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/facepull.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Seated Machine Row: Close Grip</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(9)">Toggle Video</button></li>
+                        <ul> Rec: 1–2 sets of 12–15 reps</ul>
+                        <div hidden id="vid9" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/rows.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Chest Exercises -->
-        <div class="row">
-            <h1>Chest</h1>
-            <div class="exercise">
-                <li><b>Push Ups</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(13)">Toggle Video</button></li>
-                    <ul> Rec: 3-5 sets of up 6-12 reps</ul>
-                    <div hidden id="vid13" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/pushup.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Burpees</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(14)">Toggle Video</button></li>
-                    <ul> Rec: 3-5 sets of up 10-15 reps</ul>
-                    <div hidden id="vid14" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/burpee.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Cable Crossover</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(15)">Toggle Video</button></li>
-                    <ul> Rec: 3-4 sets of up 8-12 reps</ul>
-                    <div hidden id="vid15" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/cablecrossover.mp4" type="video/mp4">
-                        </video>
-                    </div>
+            <!-- Butt/Hip Exercises -->
+            <div class="row">
+                <h1>Butt/Hips</h1>
+                <div class="exercise">
+                    <li><b>Barbell Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(10)">Toggle Video</button></li>
+                        <ul> Rec: 3-4 sets of 2-6 reps</ul>
+                        <div hidden id="vid10" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/barbelldeadlift.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Plank</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(11)">Toggle Video</button></li>
+                        <ul> Rec: 5 sets of up to 10-20 seconds</ul>
+                        <div hidden id="vid11" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/plank.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Romanian Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(12)">Toggle Video</button></li>
+                        <ul> Rec: 3-5 sets of up 6-12 reps</ul>
+                        <div hidden id="vid12" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/romaniandeadlift.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Full Body Exercises -->
-        <div class="row">
-            <h1>Full Body</h1>
-            <div class="exercise">
-                <li><b>Burpees</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(16)">Toggle Video</button></li>
-                    <ul> Rec: 3-5 sets of up 10-15 reps</ul>
-                    <div hidden id="vid16" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/burpee.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Squat Jump</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(17)">Toggle Video</button></li>
-                    <ul> Rec: 4 sets of up 5-10 reps</ul>
-                    <div hidden id="vid17" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/squatjump.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Jumping Jacks</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(18)">Toggle Video</button></li>
-                    <ul> Rec: 5 sets of up 10-15 reps</ul>
-                    <div hidden id="vid18" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/jumpingjacks.mp4" type="video/mp4">
-                        </video>
-                    </div>
+            <!-- Chest Exercises -->
+            <div class="row">
+                <h1>Chest</h1>
+                <div class="exercise">
+                    <li><b>Push Ups</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(13)">Toggle Video</button></li>
+                        <ul> Rec: 3-5 sets of up 6-12 reps</ul>
+                        <div hidden id="vid13" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/pushup.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Burpees</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(14)">Toggle Video</button></li>
+                        <ul> Rec: 3-5 sets of up 10-15 reps</ul>
+                        <div hidden id="vid14" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/burpee.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Cable Crossover</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(15)">Toggle Video</button></li>
+                        <ul> Rec: 3-4 sets of up 8-12 reps</ul>
+                        <div hidden id="vid15" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/cablecrossover.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Leg Exercises -->
-        <div class="row">
-            <h1>Legs</h1>
-            <div class="exercise">
-                <li><b>Romanian Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(19)">Toggle Video</button></li>
-                    <ul> Rec: 3-5 sets of up 6-12 reps</ul>
-                    <div hidden id="vid19" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/romaniandeadlift.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Leg Press</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(20)">Toggle Video</button></li>
-                    <ul> Rec: 1 set of up 10-12 reps</ul>
-                    <div hidden id="vid20" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/legpress.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Barbell Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(21)">Toggle Video</button></li>
-                    <ul> Rec: 3-4 sets of 2-6 reps</ul>
-                    <div hidden id="vid21" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/barbelldeadlift.mp4" type="video/mp4">
-                        </video>
-                    </div>
+            <!-- Full Body Exercises -->
+            <div class="row">
+                <h1>Full Body</h1>
+                <div class="exercise">
+                    <li><b>Burpees</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(16)">Toggle Video</button></li>
+                        <ul> Rec: 3-5 sets of up 10-15 reps</ul>
+                        <div hidden id="vid16" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/burpee.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Squat Jump</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(17)">Toggle Video</button></li>
+                        <ul> Rec: 4 sets of up 5-10 reps</ul>
+                        <div hidden id="vid17" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/squatjump.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Jumping Jacks</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(18)">Toggle Video</button></li>
+                        <ul> Rec: 5 sets of up 10-15 reps</ul>
+                        <div hidden id="vid18" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/jumpingjacks.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Shoulder Exercises -->
-        <div class="row">
-            <h1>Shoulders</h1>
-            <div class="exercise">
-                <li><b>Pull Up</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(22)">Toggle Video</button></li>
-                    <ul> Rec: 3 sets of 8 reps</ul>
-                    <div hidden id="vid22" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/pullup.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                 <li><b>Push Ups</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(23)">Toggle Video</button></li>
-                    <ul> Rec: 3-5 sets of up 6-12 reps</ul>
-                    <div hidden id="vid23" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/pushup.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                <li><b>Face Pull</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(24)">Toggle Video</button></li>
-                    <ul> Rec: 2–3 sets of 10–15 reps</ul>
-                    <div hidden id="vid24" class="vid">
-                        <video width="320" height="240" controls>
-                            <source src="exercise vids/facepull.mp4" type="video/mp4">
-                        </video>
-                    </div>
+            <!-- Leg Exercises -->
+            <div class="row">
+                <h1>Legs</h1>
+                <div class="exercise">
+                    <li><b>Romanian Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(19)">Toggle Video</button></li>
+                        <ul> Rec: 3-5 sets of up 6-12 reps</ul>
+                        <div hidden id="vid19" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/romaniandeadlift.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Leg Press</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(20)">Toggle Video</button></li>
+                        <ul> Rec: 1 set of up 10-12 reps</ul>
+                        <div hidden id="vid20" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/legpress.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Barbell Deadlift</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(21)">Toggle Video</button></li>
+                        <ul> Rec: 3-4 sets of 2-6 reps</ul>
+                        <div hidden id="vid21" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/barbelldeadlift.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Shoulder Exercises -->
+            <div class="row">
+                <h1>Shoulders</h1>
+                <div class="exercise">
+                    <li><b>Pull Up</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(22)">Toggle Video</button></li>
+                        <ul> Rec: 3 sets of 8 reps</ul>
+                        <div hidden id="vid22" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/pullup.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Push Ups</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(23)">Toggle Video</button></li>
+                        <ul> Rec: 3-5 sets of up 6-12 reps</ul>
+                        <div hidden id="vid23" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/pushup.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    <li><b>Face Pull</b> <button type="button" style="float: right; margin-right: 20px;" onclick="showDiv(24)">Toggle Video</button></li>
+                        <ul> Rec: 2–3 sets of 10–15 reps</ul>
+                        <div hidden id="vid24" class="vid">
+                            <video width="320" height="240" controls>
+                                <source src="exercise vids/facepull.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                </div>
             </div>
         </div>
 
